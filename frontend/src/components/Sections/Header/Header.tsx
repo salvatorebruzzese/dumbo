@@ -1,4 +1,3 @@
-import { ClockComponent } from "@/components/Sections/Header/Clock";
 import { Status } from "@/components/Sections/Header/Status";
 import { Dumbo } from "@/components/Sprites";
 import { useHome } from "@/context/HomeContext";
@@ -23,14 +22,14 @@ export function Header() {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 p-2">
-      <div className="grid grid-cols-5">
-        <div className="col-span-2 grid place-items-center">
-          <Dumbo fill="rgb(99 102 241)" className="h-[30svh]" />
+    <div className="flex flex-col md:grid md:grid-cols-2 gap-4 p-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid place-items-center">
+          <Dumbo fill="rgb(99 102 241)" width="200px" height="200px"/>
         </div>
-        <div className="col-span-3 grid self-center justify-self-start">
-          <h1 className="text-4xl font-bold ">DumBO</h1>
-          <h1 className="text-3xl">
+        <div className="grid self-center">
+          <h1 className="text-3xl md:text-4xl font-bold ">DumBO</h1>
+          <h1 className="text-xl md:text-2xl">
             <em>D</em>isi <em>U</em>sage <em>M</em>onitor <em>BO</em>logna
           </h1>
         </div>
@@ -38,21 +37,8 @@ export function Header() {
       <div className="grid place-items-center">
         <Card className="flex flex-col gap-4 ">
           <div className="flex gap-4 justify-evenly">
-            <ClockComponent />
             <Status />
           </div>
-          {/*<div>
-            <Callout color="amber" title="AVVISO DI CHIUSURA">
-              Il laboratorio Ercolani resterà chiuso per il mese di agosto dal
-              04/08/25 al 29/08/2025 (estremi inclusi).{" "}
-              <Link
-                href="https://disi.unibo.it/it/dipartimento/sedi-e-spazi/laboratori-didattici/laboratori-ercolani"
-                target="_blank"
-              >
-                More info
-              </Link>
-            </Callout>
-          </div>*/}
         </Card>
       </div>
     </div>

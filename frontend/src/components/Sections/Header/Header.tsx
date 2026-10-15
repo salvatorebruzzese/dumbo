@@ -35,7 +35,7 @@ export function Header() {
         </div>
       </div>
       <div className="grid place-items-center">
-        <Card className="flex flex-col gap-4 ">
+        <Card className="flex flex-col gap-4 shadow-xl">
           <div className="flex gap-4 justify-evenly">
             <Status />
           </div>

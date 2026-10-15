@@ -19,7 +19,7 @@ export function HostCard({ host }: { host: HostInfo }) {
 
   return (
     <Card
-      className="p-3 sm:p-6 transition-all"
+      className="p-3 sm:p-6 transition-all shadow-xl"
       decoration="top"
       decorationColor={host.IsDown ? "red" : "green"}
     >

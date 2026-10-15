@@ -10,7 +10,7 @@ export async function clientLoader() {
 export default function Component() {
   return (
     <HomeProvider>
-      <div className="h-screen p-2">
+      <div className="h-screen p-2 bg-gray-100 overflow-hidden">
         <Header />
         <HostList />
       </div>

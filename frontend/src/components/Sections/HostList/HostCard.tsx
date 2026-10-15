@@ -17,13 +17,15 @@ import { useNavigate } from "react-router";
 export function HostCard({ host }: { host: HostInfo }) {
   const navigate = useNavigate();
 
+
   return (
     <Card
       className="p-3 sm:p-6 transition-all shadow-xl"
       decoration="top"
       decorationColor={host.IsDown ? "red" : "green"}
     >
-      <AreaChart className={"h-40 py-2"} host={host} />
+      <AreaChart className={ host.IsDown ? "h-40 py-2 mb-6 border-b border-b-[2.5px] border-red-600" : "h-40 py-2"}
+         host={host} />
       <div className="p-4 grid gap-2">
         <h1 className="text-3xl font-bold relative z-10 bottom-8 mt-4 h-4">
           {capitalize(host.Hostname)}

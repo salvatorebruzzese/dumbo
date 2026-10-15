@@ -66,6 +66,7 @@ export default function Component() {
     return <Skeleton></Skeleton>;
   }
 
+
   return (
     <div className="h-screen p-2">
       <Card className="h-full flex flex-col gap-4">

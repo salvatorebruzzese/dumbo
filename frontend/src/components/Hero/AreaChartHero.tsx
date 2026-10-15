@@ -3,6 +3,8 @@ import { AreaChart, Icon } from "@tremor/react";
 import { ExclamationTriangleIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { HostInfo, HostLoad } from "@/types/Host.types";
 
+// plot uptime chart
+
 export const AreaChartHero = ({
   host,
   className,
@@ -47,7 +49,7 @@ export const AreaChartHero = ({
 
   if (chartdata.length === 0) {
     return (
-      <div className={`w-full flex items-center justify-center ${className}`}>
+      <div className={`w-14 flex items-center justify-center ${className}`}>
         <Icon
           icon={ExclamationTriangleIcon}
           color={"red"}

@@ -1,6 +1,6 @@
-import { useMemo } from "react";
-import { Tracker } from "@tremor/react";
 import { HostInfo } from "@/types/Host.types";
+import { Tracker } from "@tremor/react";
+import { useMemo } from "react";
 
 const TICK = 90000;
 

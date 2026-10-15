@@ -1,9 +1,9 @@
-import { useHome } from "@/context/HomeContext";
 import { ClockComponent } from "@/components/Sections/Header/Clock";
 import { Status } from "@/components/Sections/Header/Status";
-import { Card } from "@tremor/react";
-import { Skeleton } from "@radix-ui/themes";
 import { Dumbo } from "@/components/Sprites";
+import { useHome } from "@/context/HomeContext";
+import { Skeleton } from "@radix-ui/themes";
+import { Card } from "@tremor/react";
 
 export function Header() {
   const { isLoading, isError } = useHome();

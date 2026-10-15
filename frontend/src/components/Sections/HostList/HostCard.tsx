@@ -1,31 +1,42 @@
-import { useNavigate } from "react-router";
+import { AreaChart, Tracker } from "@/components/Hero";
 import { capitalize } from "@/lib/utils";
-import { Tracker, AreaChart } from "@/components/Hero";
-import { Card, Button } from "@tremor/react";
 import { HostInfo } from "@/types/Host.types";
+import { Button, Card } from "@tremor/react";
+import { useNavigate } from "react-router";
+
+/**
+ * this card is visualized in the home page
+ * it contains:
+ * lab machine hostname
+ * usage chart
+ * 
+ * details button
+ */
+
 
 export function HostCard({ host }: { host: HostInfo }) {
   const navigate = useNavigate();
 
   return (
     <Card
-      className="p-2"
+      className="p-3 sm:p-6 transition-all"
       decoration="top"
       decorationColor={host.IsDown ? "red" : "green"}
     >
       <AreaChart className={"h-40 py-2"} host={host} />
       <div className="p-4 grid gap-2">
-        <h1 className="text-4xl font-bold relative z-10 bottom-8 mt-4 h-4">
+        <h1 className="text-3xl font-bold relative z-10 bottom-8 mt-4 h-4">
           {capitalize(host.Hostname)}
         </h1>
         <Tracker host={host} interval={-40} className={"flex w-full h-4"} />
         <Button
+          className="flex rounded-full w-40 center mx-auto items-center justify-center"
           variant="secondary"
-          color={host.IsDown ? "red" : "indigo"}
+          color="indigo"
           style={{ cursor: "pointer" }}
           onClick={() => navigate(`/${host.Hostname}`)}
         >
-          Details
+          <span className="font-bold">View Details</span>
         </Button>
       </div>
     </Card>

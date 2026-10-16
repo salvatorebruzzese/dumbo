@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { subDays, subHours } from "date-fns";
-import { useNavigate, useParams } from "react-router";
-import { capitalize } from "@/lib/utils";
-import { useHosts } from "@/hooks/useHosts";
-import { useDateStore } from "@/store/useDate";
 import { AreaChart, Tracker } from "@/components/Hero";
+import { CodeSnippet } from "@/components/Sections/CodeSnippet/CodeSnippet";
 import { Dumbo } from "@/components/Sprites";
+import { useHosts } from "@/hooks/useHosts";
+import { capitalize } from "@/lib/utils";
+import { useDateStore } from "@/store/useDate";
+import { HostInfo } from "@/types/Host.types";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 import {
   Avatar,
   SegmentedControl,
@@ -13,8 +13,9 @@ import {
   Skeleton,
 } from "@radix-ui/themes";
 import { Card } from "@tremor/react";
-import { ChevronLeftIcon } from "@heroicons/react/24/solid";
-import { HostInfo } from "@/types/Host.types";
+import { subDays, subHours } from "date-fns";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router";
 
 function convertToTime(time: string, date: Date) {
   switch (time) {
@@ -75,31 +76,33 @@ export default function Component() {
             className="h-12 cursor-pointer"
             onClick={() => navigate("/")}
           />
+          <h1 className="px-4 text-4xl font-bold">
+            {capitalize(host.Hostname)}
+          </h1>
           <Dumbo fill="rgb(99 102 241)" className="h-24" />
         </div>
         <Separator size="4" />
-        <div className="flex gap-4 p-4">
-          <div className="w-full flex gap-4 items-center">
+        {/* info header */}
+        <div className="w-full flex gap-4 items-center">
             <Avatar
-              size="9"
+              size="7"
               src={`/avatars/${host.Hostname.toLowerCase()}.jpeg`}
               fallback={host.Hostname[0]}
             />
-            <h1 className="px-4 text-8xl font-bold">
-              {capitalize(host.Hostname)}
-            </h1>
+            <div className="w-full flex items-center justify-center sm:text-center xl:text-left">
+              <code className="text-xl font-bold">{host.Hostname.toLowerCase()}.cs.unibo.it</code>
+            </div>
           </div>
-          <div className="flex flex-col gap-2 w-full items-center justify-center">
-            <div className="w-full flex items-center justify-end text-left">
-              <h1 className="text-2xl font-bold">CPU: {host.CPUs}</h1>
+          <div className="flex flex-row gap-2 w-full items-center justify-center">
+            <div className="w-full flex items-center justify-center sm:text-center xl:text-left">
+              <h1 className="text-xl font-bold">CPU: {host.CPUs}</h1>
             </div>
             <div className="w-full flex items-center justify-end text-left">
-              <h1 className="text-2xl font-bold">
+              <h1 className="text-xl font-bold">
                 RAM: {formatBytes(host.RAM * 1024)}
               </h1>
             </div>
           </div>
-        </div>
         <Tracker host={host} className={"flex w-full h-6"} interval={-60} />
         <SegmentedControl.Root
           defaultValue={timeSelector}
@@ -124,7 +127,9 @@ export default function Component() {
             showLegend={true}
           />
         </div>
+        <CodeSnippet hostname={host.Hostname}></CodeSnippet>
       </Card>
+      
     </div>
   );
 }

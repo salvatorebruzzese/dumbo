@@ -1,6 +1,6 @@
 import { useHome } from "@/context/HomeContext";
-import { Badge } from "@radix-ui/themes";
 import { HostInfo } from "@/types/Host.types";
+import { Badge } from "@radix-ui/themes";
 
 export function Status() {
   const { data, isLoading, isError } = useHome();

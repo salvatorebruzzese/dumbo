@@ -27,7 +27,7 @@ export function Header() {
         <div className="order-first md:order-last grid self-center">
           <h1 className="text-3xl md:text-4xl font-bold">DumBO</h1>
           <h1 className="text-xl md:text-2xl">
-            <em>D</em>isi <em>U</em>sage <em>M</em>onitor <em>BO</em>logna
+            <strong>D</strong>isi <strong>U</strong>sage <strong>M</strong>onitor <strong>BO</strong>logna
           </h1>
         </div>
 

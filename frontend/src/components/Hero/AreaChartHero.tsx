@@ -25,7 +25,7 @@ export const AreaChartHero = ({
   const chartdata = useMemo(
     () =>
       host.Load.map((d: HostLoad) => ({
-        date: d.Load.Date,
+        date: new Date(d.Load.Date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
         cpuOne: d.Load.One,
         cpuFive: d.Load.Five,
         cpuFifteen: d.Load.Fifteen,
@@ -94,6 +94,8 @@ export const AreaChartHero = ({
           showYAxis={showYAxis}
           showLegend={showLegend}
           showGridLines={showGridLines}
+          xAxisLabel="Time (s)"
+          yAxisLabel="Load (Gb)"
           categories={
             showTooltip ? ["cpuOne", "cpuFive", "cpuFifteen"] : ["cpuOne"]
           }

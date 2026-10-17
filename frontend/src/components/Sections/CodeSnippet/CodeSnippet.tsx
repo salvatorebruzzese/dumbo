@@ -7,7 +7,7 @@ interface CodeSnippetProps {
 
 export const CodeSnippet = ( {hostname} : CodeSnippetProps) => {
   const [copied, setCopied] = useState(false);
-  const code = `<name>@${hostname}.cs.unibo.it`
+  const code = `ssh <name>@${hostname}.cs.unibo.it`
 
   const handleCopy = () => {
     navigator.clipboard.writeText(code);
@@ -16,7 +16,7 @@ export const CodeSnippet = ( {hostname} : CodeSnippetProps) => {
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-3 font-mono text-sm text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <div className="flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-3 py-3 font-mono text-sm text-gray-800 dark:bg-gray-900 dark:text-gray-200">
       {/* Testo del codice */}
       <span className="overflow-x-auto whitespace-nowrap">{code}</span>
 

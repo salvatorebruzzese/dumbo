@@ -117,7 +117,7 @@ export default function Component() {
           </SegmentedControl.Item>
           <SegmentedControl.Item value="1 day">1 day</SegmentedControl.Item>
         </SegmentedControl.Root>
-        <div className="h-72">
+        <div className="flex flex-col h-72 align-items-center pb-4">
           <AreaChart
             host={host}
             showTooltip={true}
@@ -126,9 +126,13 @@ export default function Component() {
             showGridLines={true}
             showLegend={true}
           />
+          <Card className="justify-center w-[40dvh] gap-2">
+            <p>Copy and insert your UniBo username!</p>
+            <CodeSnippet  hostname={host.Hostname}></CodeSnippet>
+          </Card>
         </div>
-        <CodeSnippet hostname={host.Hostname}></CodeSnippet>
       </Card>
+      
       
     </div>
   );
